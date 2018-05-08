@@ -1,4 +1,4 @@
-# 喵与猫寻 Meowcat - 后端 - dev [![build status](https://www.travis-ci.org/jer0701/meowcat.svg?branch=master)](https://www.travis-ci.org/jer0701/meowcat)
+# 喵与猫寻 Meowcat - 后端 - dev [![build status](https://www.travis-ci.org/jer0701/meowcat.svg?branch=dev)](https://www.travis-ci.org/jer0701/meowcat)
 
 ## QuickStart
 
