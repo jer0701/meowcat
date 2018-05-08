@@ -1,6 +1,4 @@
-# 喵与猫寻 Meowcat - 后端
-
-[Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
+# 喵与猫寻 Meowcat - 后端 [![build status](https://www.travis-ci.org/jer0701/meowcat.svg?branch=master)](https://www.travis-ci.org/jer0701/meowcat)
 
 ## QuickStart
 
