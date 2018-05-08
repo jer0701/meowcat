@@ -29,3 +29,27 @@ $ npm start
 
 - Node.js 8.x
 - Typescript 2.8+
+
+
+## 项目结构
+```sh
+Meowcat
+├── app 
+  ├── base        
+    └── basecontroller.ts # 自定义 controller 基类
+  ├── controller  # controller 目录
+  ├── model     # model 目录
+  ├── service     # service 目录
+  └── router.ts   # 路由管理
+├── config  
+  ├── config.default.ts  # 默认配置
+  ├── config.default.ts  # 本地开发环境配置
+  ├── config.default.ts  # 生产环境配置
+  └── plugin.ts          # 插件配置
+├── test/app 
+  ├── controller  # controller 相关测试用例
+  └── service     # service 相关测试用例
+├── typings  
+  └── index.d.ts  # typescript 扩展配置
+└── app.ts        # 本地开发测试使用，启动时创建数据库表
+```
