@@ -43,8 +43,8 @@ Meowcat
   └── router.ts   # 路由管理
 ├── config  
   ├── config.default.ts  # 默认配置
-  ├── config.default.ts  # 本地开发环境配置
-  ├── config.default.ts  # 生产环境配置
+  ├── config.local.ts  # 本地开发环境配置
+  ├── config.prod.ts  # 生产环境配置
   └── plugin.ts          # 插件配置
 ├── test/app 
   ├── controller  # controller 相关测试用例
