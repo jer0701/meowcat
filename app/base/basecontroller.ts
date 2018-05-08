@@ -1,6 +1,6 @@
 import { Controller } from 'egg';
 
-class BaseController extends Controller {
+export default class BaseController extends Controller {
     success(data: any = {}) {
         const { ctx } = this;
         ctx.body = JSON.stringify({
@@ -17,5 +17,3 @@ class BaseController extends Controller {
         })
     }
 }
-
-module.exports = BaseController;

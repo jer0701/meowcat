@@ -1,13 +1,13 @@
 import { Service } from 'egg'
 
-export default class user extends Service {
+export default class User extends Service {
     /**
      *  获取用户信息
      */
 
-     public async getUserAll() {
+     public async getUsersAll() {
          const { ctx } = this;
-         const users = this.ctx.model.User.findAll();
+         const users = ctx.model.User.findAll();
 
          return users;
      }
