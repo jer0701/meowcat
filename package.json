@@ -23,6 +23,7 @@
   "dependencies": {
     "@types/sequelize": "^4.27.17",
     "egg": "^2.6.1",
+    "egg-blueprint": "^1.2.1",
     "egg-scripts": "^2.6.0",
     "egg-sequelize": "^3.1.4",
     "mysql2": "^1.5.3",

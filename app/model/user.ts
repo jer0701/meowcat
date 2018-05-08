@@ -1,4 +1,4 @@
-import { Application } from 'egg';
+import { Application } from 'egg'
 
 module.exports = (app: Application) => {
     const Sequelize = app.Sequelize;
