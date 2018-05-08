@@ -1,8 +1,9 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize, SequelizeStatic } from 'sequelize'
 
 declare module 'egg' {
+    // 扩展 app
     interface Application {
-        Sequelize: SequelizeStatic; // 这里必须是这个，不然会报 STRING 找不到
+        Sequelize: SequelizeStatic;
         model: Sequelize;
     }
 }
