@@ -21,5 +21,22 @@ export default (appInfo: EggAppConfig) => {
   // add your config here
   config.middleware = [];
 
+  // wechat
+  config.wechat = {
+    appid: 'wxc9eb63fab2ca233e',
+    secret: 'ed190060be4cedf4970fea93a995f747'
+  }
+
+  // secret
+  config.secret = 'ed190060be4cedf4970fea93a995f747'
+
+  // localhost csrf
+  config.security = {
+    csrf: {
+      enable: false
+    },
+    domainWhiteList: ['http://localhost:7001']
+  }
+
   return config;
 };
