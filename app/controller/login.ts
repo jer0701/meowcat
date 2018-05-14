@@ -25,13 +25,16 @@ export default class Login extends Base {
     });
 
     if(user) {
-      await model.User.update({
-        token: token,
-        nickName: res.userInfo.nickName,
-        gender: res.userInfo.gender,
-        city: res.userInfo.city,
-        avatarUrl: res.userInfo.avatarUrl
-      })
+      await model.User.update(
+        {
+          token: token,
+          nickName: res.userInfo.nickName,
+          gender: res.userInfo.gender,
+          city: res.userInfo.city,
+          avatarUrl: res.userInfo.avatarUrl
+        },
+        { where: { openid: res.openid }, transaction }
+      )
 
     } else {
       await model.User.create({
