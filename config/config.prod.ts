@@ -8,7 +8,17 @@ export default () => {
     host: '127.0.0.1',
     port: 3306,
     username: 'root',
-    password: 'wang1234'
+    password: 'wang1234',
+    dialectOptions: {
+      charset: 'utf8mb4',
+      collate: 'utf8mb4_unicode_ci',
+      supportBigNumbers: true,
+      bigNumberStrings: true
+    },
+    define: {
+      underscored: true,
+      charset: 'utf8mb4'
+    }
   }
 
   return config;
