@@ -10,7 +10,7 @@ export default class Login extends Base {
   public async index() {
     const { ctx, service } = this;
     const res = await service.login.getWechatInfo();
-  
+   
     const sha1 = crypto.createHash('sha1');
     const token = sha1.update(res.openid).digest('hex');
     const jwtToken = jwt.sign({ token: token }, this.app.config.secret, { expiresIn: 60 * 60 * 48 })
@@ -59,6 +59,12 @@ export default class Login extends Base {
   @bp.get('/login/check', WechatAuth)
   public async check() {
     const { ctx } = this;
-    console.log(ctx.token);
+    if(ctx.token) {
+      this.success({
+        token: ctx.token
+      });
+    } else {
+      this.fail('invalid token')
+    }
   }
 }

@@ -5,12 +5,12 @@ import * as jwt from 'jsonwebtoken'
 export function WechatAuth (ctx: Context, ctl: any) { // 使用 base 报错
   try {
     var token = ctx.request.headers['authorization'];
-
     if(token) {
-      token = token.split(' ')[1];
-      const obj = jwt.verify(token, ctx.app.config.secret);
-      console.log(obj);
-      ctx.token = obj['token'];
+      jwt.verify(token, ctx.app.config.secret, function(err, decoded) {
+        if(!err) {
+          ctx.token = decoded.token;
+        }
+      });
     }
   } catch(e) {
     ctl.fail('login_fail');
