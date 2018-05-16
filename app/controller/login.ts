@@ -2,6 +2,7 @@ import Base from '../base/basecontroller'
 import { bp } from 'egg-blueprint'
 import * as crypto from 'crypto'
 import * as jwt from 'jsonwebtoken'
+import { WechatAuth } from '../auth/auth'
 
 
 export default class Login extends Base {
@@ -53,5 +54,11 @@ export default class Login extends Base {
     }
 
     this.success(data);
+  }
+
+  @bp.get('/login/check', WechatAuth)
+  public async check() {
+    const { ctx } = this;
+    console.log(ctx.token);
   }
 }
