@@ -1,8 +1,8 @@
 import { Context } from 'egg'
-// import Base from '../base/basecontroller'
+import Base from '../base/basecontroller'
 import * as jwt from 'jsonwebtoken'
 
-export function WechatAuth (ctx: Context, ctl: any) { // 使用 base 报错
+export function WechatAuth (ctx: Context, ctl: Base) { 
   try {
     var token = ctx.request.headers['authorization'];
     if(token) {
