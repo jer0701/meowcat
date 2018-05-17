@@ -27,4 +27,5 @@ export default class Login extends Service {
         const res = await ctx.curl(url, {dataType: 'json'});
         return { ...res.data, userInfo };
      }
+
 }

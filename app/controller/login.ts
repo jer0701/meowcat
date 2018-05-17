@@ -13,29 +13,24 @@ export default class Login extends Base {
    
     const sha1 = crypto.createHash('sha1');
     const token = sha1.update(res.openid).digest('hex');
-    const jwtToken = jwt.sign({ token: token }, this.app.config.secret, { expiresIn: 60 * 60 * 48 })
+    const jwtToken = jwt.sign({ token: token }, this.app.config.secret, { expiresIn: 60 * 60 * 72 })
 
     const model = await ctx.model;
-    const transaction = await ctx.model.transaction();
 
     const user = await model.User.findOne({
       where: {
         openid: res.openid
-      },
-      transaction
+      }
     });
 
     if(user) {
-      await model.User.update(
-        {
+      await user.update({
           token: token,
           nickName: res.userInfo.nickName,
           gender: res.userInfo.gender,
           city: res.userInfo.city,
           avatarUrl: res.userInfo.avatarUrl
-        },
-        { where: { openid: res.openid }, transaction }
-      )
+        })
 
     } else {
       await model.User.create({
@@ -45,7 +40,6 @@ export default class Login extends Base {
         gender: res.userInfo.gender,
         city: res.userInfo.city,
         avatarUrl: res.userInfo.avatarUrl
-
       })  
     }
 

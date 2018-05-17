@@ -7,7 +7,10 @@ export function WechatAuth (ctx: Context, ctl: Base) {
     var token = ctx.request.headers['authorization'];
     if(token) {
       jwt.verify(token, ctx.app.config.secret, function(err, decoded) {
+        console.log(1);
+        console.log(decoded);
         if(!err) {
+          console.log(2);
           ctx.token = decoded.token;
         }
       });
