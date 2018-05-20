@@ -24,5 +24,10 @@ module.exports = (app: Application) => {
         birthdate: BIGINT
     });
 
+    User.associate = function() {
+        app.model.User.hasMany(app.model.Cat, { as: 'cats', foreignKey: 'openid' });
+        app.model.User.hasMany(app.model.Post, { as: 'posts', foreignKey: 'openid' });
+    };
+
     return User;
 }

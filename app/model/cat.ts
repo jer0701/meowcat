@@ -22,5 +22,9 @@ module.exports = (app: Application) => {
         }
     });
 
+    Cat.associate = function() {
+        app.model.Cat.belongsTo(app.model.User, { as: 'user', foreignKey: 'openid' });
+    };
+
     return Cat;
 }

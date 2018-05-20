@@ -20,5 +20,9 @@ module.exports = (app: Application) => {
         date: STRING(16)
     });
 
+    Post.associate = function() {
+        app.model.Post.belongsTo(app.model.User, { as: 'user', foreignKey: 'openid' });
+    };
+
     return Post;
 }
