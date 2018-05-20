@@ -2,14 +2,19 @@ import Base from '../base/basecontroller'
 import { bp } from 'egg-blueprint'
 
 export default class Userontroller extends Base {
-  @bp.get('/user/info')
+  @bp.post('/userinfo')
   public async index() {
     const { service } = this;
-    const users = await service.user.getUsersAll();
+    const user = await service.user.updateUserInfo();
     const data = {
-      users: users
+      user: user
     }
 
-    this.success(data);
+    if(user) {
+      this.success(data);
+    } else {
+      this.fail("user isn't exist")
+    }
+    
   }
 }

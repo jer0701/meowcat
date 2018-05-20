@@ -2,13 +2,26 @@ import { Service } from 'egg'
 
 export default class User extends Service {
     /**
-     *  获取用户信息
+     *  更新用户信息
      */
-
-     public async getUsersAll() {
+     public async updateUserInfo() {
          const { ctx } = this;
-         const users = ctx.model.User.findAll();
+         const { openid, userinfo } = ctx.request.body;
 
-         return users;
+         const model = await ctx.model;
+
+         const user = await model.User.findOne({
+             where: {
+                 openid: openid
+             }
+         });
+
+         if(user && userinfo.birthdate) {
+             await user.update({
+                birthdate: userinfo.birthdate
+             })
+         }
+
+         return user;
      }
 }
