@@ -25,8 +25,8 @@ module.exports = (app: Application) => {
     });
 
     User.associate = function() {
-        app.model.User.hasMany(app.model.Cat, { as: 'cats', foreignKey: 'openid' });
-        app.model.User.hasMany(app.model.Post, { as: 'posts', foreignKey: 'openid' });
+        app.model.User.hasMany(app.model.Cat, { as: 'cats', foreignKey: 'user_id' });
+        app.model.User.hasMany(app.model.Post, { as: 'posts', foreignKey: 'user_id' });
     };
 
     return User;
