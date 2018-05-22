@@ -44,7 +44,8 @@ export default class Login extends Base {
     }
 
     const data = {
-      token: jwtToken
+      token: jwtToken,
+      openid: res.openid
     }
 
     this.success(data);
