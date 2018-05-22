@@ -6,9 +6,9 @@ export default () => {
     dialect: 'mysql',
     database: 'meowcat',
     host: '127.0.0.1',
-    port: 3306,
-    username: 'root',
-    password: 'wang1234',
+    port: 3308,
+    username: 'meowcat',
+    password: 'meowact',
     dialectOptions: {
       charset: 'utf8mb4',
       collate: 'utf8mb4_unicode_ci',
