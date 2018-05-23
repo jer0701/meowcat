@@ -30,9 +30,9 @@ export default class User extends Service {
              }
          });
 
-         if(user && userInfo.birthdate) {
+         if(user && userInfo.gender) {
              await user.update({
-                birthdate: userInfo.birthdate
+                gender: userInfo.gender
              })
          }
          return user;

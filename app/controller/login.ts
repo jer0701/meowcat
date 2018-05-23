@@ -27,7 +27,6 @@ export default class Login extends Base {
       await user.update({
           token: token,
           nickName: res.userInfo.nickName,
-          gender: res.userInfo.gender,
           city: res.userInfo.city,
           avatarUrl: res.userInfo.avatarUrl
         })
@@ -37,7 +36,7 @@ export default class Login extends Base {
         openid: res.openid,
         token: token,
         nickName: res.userInfo.nickName,
-        gender: res.userInfo.gender,
+        gender: -1,
         city: res.userInfo.city,
         avatarUrl: res.userInfo.avatarUrl
       })  
