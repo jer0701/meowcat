@@ -9,20 +9,24 @@ module.exports = (app: Application) => {
             type: INTEGER,
             primaryKey: true,
             autoIncrement: true,
-            unique: true
+            unique: true,
         },
         openid: {
             type: STRING(128),
             unique: true,
-            allowNull: false
+            allowNull: false,
         },
         token: STRING(128),
         nickName: TEXT,
         gender: INTEGER,
         city: STRING(16),
         avatarUrl: TEXT,
-        birthdate: BIGINT
+        birthdate: BIGINT,
     });
+    
+    User.associate = function () {
+        User.hasMany(app.model.Article);
+    };
 
     return User;
 }
