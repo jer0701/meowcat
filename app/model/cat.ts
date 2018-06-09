@@ -16,11 +16,12 @@ module.exports = (app: Application) => {
         avatarUrl: TEXT,
         type: STRING(128),
         feature: TEXT,
-        openid: {
-            type: STRING(128),
-            allowNull: false
-        }
+        user_id: INTEGER
     });
+
+    Cat.associate = function() {
+        app.model.Cat.belongsTo(app.model.User, { as: 'user', foreignKey: 'user_id' });
+    };
 
     return Cat;
 }

@@ -11,14 +11,15 @@ module.exports = (app: Application) => {
             autoIncrement: true,
             unique: true
         },
-        catid: INTEGER,
-        openid: {
-            type: STRING(128),
-            allowNull: false
-        },
+        cat_id: INTEGER,
+        user_id: INTEGER,
         time: STRING(32),
         date: STRING(16)
     });
+
+    Post.associate = function() {
+        app.model.Post.belongsTo(app.model.User, { as: 'user', foreignKey: 'user_id' });
+    };
 
     return Post;
 }

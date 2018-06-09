@@ -3,7 +3,7 @@ import { Application } from 'egg'
 module.exports = (app: Application) => {
     const Sequelize = app.Sequelize;
 
-    const { STRING, TEXT, INTEGER, BIGINT } = Sequelize;
+    const { STRING, TEXT, INTEGER, DATE } = Sequelize;
     const User = app.model.define('user', {
         id: {
             type: INTEGER,
@@ -21,11 +21,16 @@ module.exports = (app: Application) => {
         gender: INTEGER,
         city: STRING(16),
         avatarUrl: TEXT,
-        birthdate: BIGINT,
+        birthdate: DATE
     });
     
     User.associate = function () {
         User.hasMany(app.model.Article);
+    };
+
+    User.associate = function() {
+        app.model.User.hasMany(app.model.Cat, { as: 'cats', foreignKey: 'user_id' });
+        app.model.User.hasMany(app.model.Post, { as: 'posts', foreignKey: 'user_id' });
     };
 
     return User;

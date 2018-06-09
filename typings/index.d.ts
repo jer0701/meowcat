@@ -4,6 +4,6 @@ declare module 'egg' {
     // 扩展 app
     interface Application {
         Sequelize: SequelizeStatic;
-        model: Sequelize.model;
+        //model: Sequelize;
     }
 }
